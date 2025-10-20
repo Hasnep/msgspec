@@ -18,6 +18,8 @@ on:
     types:
     - published
 
+permissions: {}
+
 jobs:
   validate:
     name: Run static analysis and smoke tests
@@ -29,6 +31,8 @@ jobs:
     steps:
     - name: Checkout code
       uses: actions/checkout@v5
+      with:
+        persist-credentials: false
 
     - name: Load environment file
       uses: ./.github/actions/load-env

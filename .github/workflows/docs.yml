@@ -6,12 +6,16 @@ on:
     - main
   pull_request: null
 
+permissions: {}
+
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: Checkout code
       uses: actions/checkout@v5
+      with:
+        persist-credentials: false
 
     - name: Load environment file
       uses: ./.github/actions/load-env
